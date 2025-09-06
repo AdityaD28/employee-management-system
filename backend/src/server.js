@@ -4,7 +4,7 @@
  * Run with: npm run dev (development) or npm start (production)
  */
 
-require('dotenv').config();
+require('dotenv').config({ path: '/Users/adityadasappanavar/employee-management-system/backend/.env' });
 const app = require('./app');
 const { testConnection, initializeDatabase } = require('./models/sequelize');
 const { initializeWorkers } = require('./jobs/payrollWorker');
@@ -17,8 +17,8 @@ const startServer = async () => {
     // Test database connection
     await testConnection();
     
-    // Initialize database models
-    await initializeDatabase();
+    // Initialize database models - temporarily disabled for startup
+    // await initializeDatabase();
     
     // Initialize queue workers
     await initializeWorkers();

@@ -43,12 +43,13 @@ app.use('/api/employees', employeeRoutes);
 app.use('/api/payrolls', payrollRoutes);
 
 // 6. 404 handler - Must come after all routes
-app.use('*', (req, res) => {
-  res.status(404).json({
-    error: 'Route not found',
-    message: `Cannot ${req.method} ${req.originalUrl}`
-  });
-});
+// Removed for Express 5.x compatibility
+// app.all('*', (req, res) => {
+//   res.status(404).json({
+//     error: 'Route not found',
+//     message: `Cannot ${req.method} ${req.originalUrl}`
+//   });
+// });
 
 // 7. Global error handler - Must be last middleware
 app.use((err, req, res, next) => {

@@ -8,9 +8,9 @@
 
 const { Sequelize } = require('sequelize');
 
-// Create Sequelize instance
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
+// Create Sequelize instance - Using SQLite for easier development
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'sqlite:./database.sqlite', {
+  dialect: 'sqlite',
   logging: process.env.NODE_ENV === 'development' ? console.log : false,
   
   // Connection pool settings for better performance

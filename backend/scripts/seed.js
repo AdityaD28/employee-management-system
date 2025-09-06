@@ -100,7 +100,7 @@ const createDefaultUsers = async () => {
 
   const defaultUsers = [
     {
-      email: 'admin@company.com',
+      email: 'admindemo.com',
       password_hash: defaultPassword,
       role: 'admin',
       is_active: true
@@ -192,12 +192,25 @@ const createEmployees = async () => {
 
   // Bulk create employees for better performance
   console.log('💾 Saving employees to database...');
-  const createdEmployees = await Employee.bulkCreate(employees, {
-    ignoreDuplicates: true,
-    validate: true
-  });
+  const BATCH_SIZE = 100;
+  let totalCreated = 0;
+  
+  for (let i = 0; i < employees.length; i += BATCH_SIZE) {
+    const batch = employees.slice(i, i + BATCH_SIZE);
+    try {
+      const createdEmployees = await Employee.bulkCreate(batch, {
+        ignoreDuplicates: true,
+        validate: true
+      });
+      totalCreated += createdEmployees.length;
+      console.log(`  💾 Saved batch ${Math.floor(i/BATCH_SIZE) + 1}/${Math.ceil(employees.length/BATCH_SIZE)}`);
+    } catch (error) {
+      console.log(`  ⚠️  Batch ${Math.floor(i/BATCH_SIZE) + 1} had errors, continuing...`);
+    }
+  }
 
-  console.log(`✅ Created ${createdEmployees.length} employees`);
+  console.log(`✅ Created ${totalCreated} employees`);
+  return totalCreated;
   return createdEmployees;
 };
 
