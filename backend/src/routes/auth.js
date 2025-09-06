@@ -21,12 +21,9 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
+const User = require('../models/User');
 
 const router = express.Router();
-
-// TODO: Replace with actual User model in Step 4
-// For now, we'll use a simple in-memory store for testing
-let users = [];
 
 /**
  * Helper function to generate JWT tokens
@@ -79,7 +76,7 @@ router.post('/register', [
     const { email, password, role } = req.body;
 
     // Check if user already exists
-    const existingUser = users.find(u => u.email === email);
+    const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({
         error: 'User already exists with this email'
@@ -90,26 +87,19 @@ router.post('/register', [
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Create new user (TODO: Save to database in Step 4)
-    const newUser = {
-      id: Date.now().toString(), // Simple ID for now
+    // Create new user in database
+    const newUser = await User.create({
       email,
       password_hash: hashedPassword,
-      role,
-      createdAt: new Date()
-    };
-
-    users.push(newUser);
+      role
+    });
 
     // Generate tokens
     const tokens = generateTokens(newUser);
 
-    // Don't send password hash in response
-    const { password_hash, ...userResponse } = newUser;
-
     res.status(201).json({
       message: 'User registered successfully',
-      user: userResponse,
+      user: newUser.toJSON(), // Uses model's toJSON to exclude password_hash
       ...tokens
     });
 
@@ -142,8 +132,8 @@ router.post('/login', [
 
     const { email, password } = req.body;
 
-    // Find user (TODO: Query database in Step 4)
-    const user = users.find(u => u.email === email);
+    // Find user in database
+    const user = await User.findOne({ where: { email } });
     if (!user) {
       return res.status(401).json({
         error: 'Invalid credentials'
@@ -158,15 +148,15 @@ router.post('/login', [
       });
     }
 
+    // Update last login
+    await user.update({ last_login: new Date() });
+
     // Generate tokens
     const tokens = generateTokens(user);
 
-    // Don't send password hash in response
-    const { password_hash, ...userResponse } = user;
-
     res.json({
       message: 'Login successful',
-      user: userResponse,
+      user: user.toJSON(), // Uses model's toJSON to exclude password_hash
       ...tokens
     });
 
