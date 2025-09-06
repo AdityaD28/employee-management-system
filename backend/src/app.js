@@ -35,10 +35,12 @@ app.get('/api/health', (req, res) => {
 
 // 5. API Routes
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+const employeeRoutes = require('./routes/employees');
+const payrollRoutes = require('./routes/payrolls');
 
-// TODO: Mount employee routes -> app.use('/api/employees', employeeRoutes);
-// TODO: Mount payroll routes -> app.use('/api/payrolls', payrollRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/employees', employeeRoutes);
+app.use('/api/payrolls', payrollRoutes);
 
 // 6. 404 handler - Must come after all routes
 app.use('*', (req, res) => {
