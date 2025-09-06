@@ -33,8 +33,10 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// 5. API Routes will be mounted here in later steps
-// TODO: Mount auth routes -> app.use('/api/auth', authRoutes);
+// 5. API Routes
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 // TODO: Mount employee routes -> app.use('/api/employees', employeeRoutes);
 // TODO: Mount payroll routes -> app.use('/api/payrolls', payrollRoutes);
 
