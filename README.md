@@ -2,64 +2,64 @@
 
 A complete, modern full-stack employee management system built with React, Node.js, Express, SQLite, and featuring comprehensive employee lifecycle management, payroll processing, and analytics.
 
-## 🎯 Features
+## Features
 
-### 🔐 Authentication & Security
+### Authentication & Security
 - JWT-based authentication with secure token management
 - Role-based access control (Admin, HR, Manager, Employee)
 - Secure password hashing with bcrypt
 - Session management and auto-logout
 
-### 👥 Employee Management
+### Employee Management
 - **Complete CRUD Operations**: Add, view, edit, and delete employees
 - **Advanced Search & Filtering**: Search by name, email, department
 - **Department Management**: Organize employees by departments
 - **Employee Profiles**: Detailed employee information with photos
 - **Responsive Design**: Beautiful, modern UI that works on all devices
 
-### 💰 Payroll Processing
+### Payroll Processing
 - **Automated Payroll Calculation**: Calculate salaries, taxes, and deductions
 - **Payroll History**: Track all payroll records with persistence
 - **Status Management**: Process, review, and approve payroll entries
 - **Local Storage Persistence**: Payroll data persists across browser sessions
 
-### 📊 Reports & Analytics
+### Reports & Analytics
 - **Overview Dashboard**: Key metrics and KPIs at a glance
 - **Performance Reports**: Employee performance tracking and ratings
 - **Financial Reports**: Revenue, expenses, and profit analysis
 - **Department Analytics**: Department-wise statistics and insights
 - **Export Functionality**: Export reports to PDF and Excel formats
 
-### 🎨 Modern UI/UX
+### Modern UI/UX
 - **Beautiful Design**: Modern gradient-based UI with clean aesthetics
 - **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
 - **Interactive Forms**: Enhanced form validation with real-time feedback
 - **Modal System**: Smooth modal dialogs for all operations
 - **Notifications**: Toast notifications for user feedback
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Frontend (React + Vite)          Backend (Node.js + Express)       Database (SQLite)
 ┌─────────────────────────┐     ┌─────────────────────────┐       ┌─────────────────┐
 │                         │     │                         │       │                 │
-│  📱 React Components    │────▶│  🛡️  Authentication      │──────▶│  👥 Users Table │
-│  🎨 Modern UI/UX        │     │  📝 Employee APIs       │       │  👨‍💼 Employees    │
-│  📊 Dashboard & Reports │     │  💰 Payroll Processing  │       │  💰 Payroll     │
-│  🔍 Search & Filters    │     │  📊 Analytics APIs      │       │  📊 Reports     │
-│  📱 Responsive Design   │     │  🔐 JWT Middleware      │       │                 │
+│   React Components      │────▶│  Authentication         │──────▶│ Users Table      
+│   Modern UI/UX          │     │ Employee APIs           │       │ Employees       │
+│   Dashboard & Reports   │     │ Payroll Processing      │       │ Payroll         │
+│   Search & Filters      │     │ Analytics APIs          │       │ Reports         │
+│   Responsive Design     │     │ JWT Middleware          │       │                 │
 │                         │     │                         │       │                 │
 └─────────────────────────┘     └─────────────────────────┘       └─────────────────┘
-                                                                            │
-                                  ┌─────────────────────────┐              │
-                                  │  💾 Local Storage       │              │
-                                  │  🔄 State Management    │              │
-                                  │  📝 Form Persistence    │◀─────────────┘
-                                  │  🔔 Notifications       │
+                                                                          │
+                                  ┌─────────────────────────┐             │
+                                  │  Local Storage          │             │
+                                  │  State Management       │             │
+                                  │  Form Persistence       │◀────────────┘
+                                  │  Notifications          │
                                   └─────────────────────────┘
 ```
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 
@@ -101,16 +101,16 @@ Email: admin@demo.com
 Password: password123
 ```
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 employee-management-system/
-├── 📁 frontend/                 # React frontend application
-│   ├── 📁 src/
-│   │   ├── 📁 components/       # Reusable UI components
+├──  frontend/                 # React frontend application
+│   ├──  src/
+│   │   ├──  components/       # Reusable UI components
 │   │   │   ├── EmployeeCard.jsx
 │   │   │   └── Notification.jsx
-│   │   ├── 📁 pages/           # Main application pages
+│   │   ├──  pages/           # Main application pages
 │   │   │   ├── Dashboard.jsx
 │   │   │   ├── EmployeesPage.jsx
 │   │   │   ├── PayrollPage.jsx
@@ -120,60 +120,60 @@ employee-management-system/
 │   ├── package.json
 │   └── vite.config.js
 │
-├── 📁 backend/                  # Node.js backend API
+├──  backend/                  # Node.js backend API
 │   ├── � src/
-│   │   ├── 📁 controllers/      # API route handlers
-│   │   ├── 📁 middleware/       # Authentication & validation
-│   │   ├── 📁 models/          # Database models (Sequelize)
-│   │   ├── 📁 routes/          # API route definitions
+│   │   ├──  controllers/      # API route handlers
+│   │   ├──  middleware/       # Authentication & validation
+│   │   ├──  models/          # Database models (Sequelize)
+│   │   ├──  routes/          # API route definitions
 │   │   └── server.js           # Server entry point
-│   ├── 📁 scripts/
+│   ├── scripts/
 │   │   └── seed.js             # Database seeding script
 │   ├── .env.example            # Environment variables template
 │   ├── package.json
 │   └── database.sqlite         # SQLite database file
 │
-├── 📄 README.md                # Project documentation
-├── 📄 docker-compose.yml       # Docker container orchestration
-└── 📄 Makefile                 # Build and deployment scripts
+├──  README.md                # Project documentation
+├──  docker-compose.yml       # Docker container orchestration
+└── Makefile                 # Build and deployment scripts
 ```
-## 📋 Features Overview
+## Features Overview
 
-### 🔐 Authentication System
+### Authentication System
 - **Secure Login**: JWT-based authentication with token refresh
 - **Role Management**: Admin, HR, Manager, and Employee roles
 - **Session Persistence**: Automatic login/logout handling
 - **Password Security**: Bcrypt hashing for secure password storage
 
-### 👥 Employee Management
+###  Employee Management
 - **Add New Employees**: Beautiful modal form with validation
 - **View Employee Details**: Comprehensive employee profiles
 - **Edit Employee Information**: Update any employee details
 - **Search & Filter**: Find employees by name, email, or department
 - **Department Organization**: Group employees by departments
 
-### 💰 Payroll System
+###  Payroll System
 - **Automated Calculations**: Calculate gross pay, taxes, and net pay
 - **Payroll History**: View all processed payroll records
 - **Status Tracking**: Pending, Processed, and Approved statuses
 - **Data Persistence**: Payroll records saved locally and persist across sessions
 - **Batch Processing**: Process payroll for multiple employees
 
-### 📊 Reports & Analytics
+###  Reports & Analytics
 - **Dashboard Overview**: Key metrics and statistics
 - **Department Reports**: Performance and cost analysis by department
 - **Employee Performance**: Individual performance tracking
 - **Financial Reports**: Revenue, expenses, and profit analysis
 - **Export Options**: Download reports as PDF or Excel
 
-### 🎨 User Interface
+###  User Interface
 - **Modern Design**: Clean, professional interface with gradients
 - **Responsive Layout**: Works on desktop, tablet, and mobile devices
 - **Interactive Elements**: Smooth animations and hover effects
 - **Form Validation**: Real-time validation with helpful error messages
 - **Toast Notifications**: User-friendly feedback system
 
-## 🔧 Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React 18** - Modern UI library with hooks
@@ -196,7 +196,7 @@ employee-management-system/
 - **dotenv** - Environment variable management
 - **CORS** - Cross-origin resource sharing
 
-## 🚀 Usage Guide
+##  Usage Guide
 
 ### 1. Authentication
 1. Open http://localhost:5173 in your browser
@@ -227,7 +227,7 @@ employee-management-system/
 5. **Export**: Click "Export PDF" or "Export Excel" buttons
 6. **Date Range**: Adjust date filters for specific periods
 
-## 🎯 Sample Data
+##  Sample Data
 
 The system comes with pre-populated sample data:
 
@@ -243,7 +243,7 @@ The system comes with pre-populated sample data:
 - **Alice Brown** - HR Specialist, HR ($55,000)
 - **Charlie Wilson** - Sales Representative, Sales ($50,000)
 
-## 🔄 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/login` - User login
@@ -262,7 +262,7 @@ The system comes with pre-populated sample data:
 - `GET /api/reports/performance` - Employee performance data
 - `GET /api/reports/financial` - Financial analytics data
 
-## 📱 Screenshots
+## Screenshots
 
 ### Dashboard
 - Clean overview with key metrics
@@ -284,7 +284,7 @@ The system comes with pre-populated sample data:
 - Visual performance indicators
 - Export functionality
 
-## 🔧 Environment Configuration
+## Environment Configuration
 
 ### Backend (.env)
 ```env
@@ -315,7 +315,7 @@ EMAIL_FROM=noreply@yourcompany.com
 VITE_API_URL=http://localhost:4000/api
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Development
 ```bash
@@ -344,7 +344,7 @@ docker-compose up --build
 docker-compose up -d
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Backend tests
@@ -357,7 +357,7 @@ cd frontend && npm test
 npm run test:all
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
@@ -365,31 +365,8 @@ npm run test:all
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/yourusername/employee-management-system/issues) page
-2. Create a new issue with detailed description
-3. Join our [Discord community](https://discord.gg/your-invite)
-
-## 🎉 Acknowledgments
-
-- React team for the amazing frontend library
-- Express.js community for the robust backend framework
-- Sequelize team for the excellent ORM
-- All contributors who helped make this project better
-
 ---
 
-**Made with ❤️ by [Your Name]**
-
-⭐ Star this repository if you found it helpful!
-   make dev-backend
    ```
    
    **Terminal 2 - Frontend:**
@@ -407,11 +384,11 @@ If you encounter any issues or have questions:
    - **HR**: hr@company.com / password123
    - **Manager**: manager@company.com / password123
 
-### That's it! 🎉
+### That's it! 
 
 You now have a fully functional employee management system running locally.
 
-## 📚 Detailed Setup Guide
+## Detailed Setup Guide
 
 ### Manual Setup Steps
 
@@ -462,7 +439,7 @@ If you prefer to run commands manually:
    npm run dev
    ```
 
-## 🔧 Available Commands
+##  Available Commands
 
 ### Development Commands
 ```bash
@@ -489,7 +466,7 @@ make clean           # Clean up Docker resources
 make help            # Show all available commands
 ```
 
-## 📊 Sample Data
+##  Sample Data
 
 The seed script creates:
 - **3 default users** (Admin, HR, Manager)
@@ -507,7 +484,7 @@ The seed script creates:
 
 Employee accounts use their email addresses with `password123`.
 
-## 💼 Payroll System
+##  Payroll System
 
 ### Running Payroll
 
@@ -575,7 +552,7 @@ Employee accounts use their email addresses with `password123`.
 | GET    | /api/payrolls              | List payrolls       | Admin, HR |
 | GET    | /api/payrolls/:id          | Get payroll details | Admin, HR |
 
-## 🔒 Security Features
+##  Security Features
 
 - **JWT Authentication**: Secure token-based authentication
 - **Role-Based Access Control**: Different permissions for different roles
@@ -585,7 +562,7 @@ Employee accounts use their email addresses with `password123`.
 - **CORS Protection**: Configured for frontend domain
 - **Rate Limiting**: Built into the application (can be enhanced)
 
-## 📱 Frontend Features
+## Frontend Features
 
 ### Current Features
 - **Authentication**: Login/logout with JWT tokens
@@ -601,7 +578,7 @@ Employee accounts use their email addresses with `password123`.
 - **Task Management**: Kanban board for project tasks
 - **Reports**: Generate various business reports
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Development with Docker
 ```bash
@@ -618,7 +595,7 @@ docker compose --profile full up -d
 docker compose -f docker-compose.prod.yml up -d
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Running Tests
 ```bash
@@ -643,7 +620,7 @@ backend/tests/
 └── payroll.test.js    # Payroll calculation tests
 ```
 
-## 🚀 Deployment Options
+## Deployment Options
 
 ### Option 1: Traditional Server
 1. Set up PostgreSQL and Redis
@@ -662,7 +639,7 @@ backend/tests/
 - **DigitalOcean**: Use App Platform
 - **AWS**: ECS with provided Dockerfiles
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -697,7 +674,7 @@ SMTP_PASS=your_password
 VITE_API_URL=http://localhost:4000/api
 ```
 
-## 📈 Performance Considerations
+## Performance Considerations
 
 ### Database Optimizations
 - **Indexing**: Key fields are indexed for fast queries
@@ -714,7 +691,7 @@ VITE_API_URL=http://localhost:4000/api
 - **Job Retry**: Failed jobs are automatically retried
 - **Queue Monitoring**: Built-in job status tracking
 
-## 🛠️ Extending the System
+## Extending the System
 
 ### Adding New Roles
 1. Update the User model enum in `backend/src/models/User.js`
@@ -732,7 +709,7 @@ VITE_API_URL=http://localhost:4000/api
 3. **Update navigation** in `frontend/src/components/Header.jsx`
 4. **Add tests** for new functionality
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -762,58 +739,19 @@ VITE_API_URL=http://localhost:4000/api
 2. **Verify status**: `make status`
 3. **Reset everything**: `make clean && make setup`
 
-## 📝 Development Roadmap
 
-### Phase 1 ✅ (Completed)
-- [x] Basic authentication system
-- [x] Employee CRUD operations
-- [x] Payroll processing with queues
-- [x] Frontend with React and Tailwind
-- [x] Docker setup and documentation
-
-### Phase 2 🚧 (In Progress)
-- [ ] Employee detail views and forms
-- [ ] Payroll dashboard in frontend
-- [ ] Advanced search and filtering
-- [ ] File upload for employee photos
-- [ ] Email notifications
-
-### Phase 3 📋 (Planned)
-- [ ] Task management (Kanban board)
-- [ ] Reporting and analytics
-- [ ] Performance reviews
-- [ ] Time tracking
-- [ ] Mobile app (React Native)
-
-### Phase 4 🎯 (Future)
-- [ ] Advanced HR workflows
-- [ ] Integration with external systems
-- [ ] Multi-tenant support
-- [ ] Advanced reporting
-- [ ] API rate limiting and monitoring
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and add tests
-4. Commit with clear messages
-5. Push and create a pull request
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
-
-- **Frameworks**: Express.js, React, Sequelize
-- **Styling**: Tailwind CSS
-- **Testing**: Jest, Supertest, React Testing Library
-- **Infrastructure**: Docker, PostgreSQL, Redis
-- **CI/CD**: GitHub Actions
-
 ---
 
-**Happy coding! 🚀**
+**Happy coding!**
 
 If you found this helpful, please give it a ⭐ on GitHub!
+
+## Developed By
+
+* **Aditya Dasappanavar**
+* **GitHub:** [AdityaD28](https://github.com/AdityaD28)
+* **LinkedIn:** [adityadasappanavar](https://www.linkedin.com/in/adityadasappanavar/)
